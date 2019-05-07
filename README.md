@@ -6,8 +6,6 @@
 2. [Database Table Schemas](#dts)
 3. [Important Functions and Stored Procedures](#functions)
 4. [Database Installation](#installation)
-5. [Additional Scripts](#scripts)
-7. [Glossary](#glossary)
 
 ## <a name="intro"></a> Introduction
 
@@ -27,8 +25,6 @@ The Database contains four schemas and the tables within each schema perform a p
 
 ## <a name="functions"></a>Important Functions and Stored Procedures
 
-- __[IATISchema].[p_Populate]__ - This stored procedure is the main driver of the DFID data generation process within the database. It extracts DFID’s financial information from a DataMart that is linked to the organisation’s Enterprise Resource Planning system and transforms it, using the data in the Codelist and PublicationControl tables, before saving DFID’s IATI data into the IATISchema tables.
-
 - __[IATISchema].[f_activitiesXMLFile_201]__ -  This function is used to return valid IATI 2.01 XML data from the IATI Schema database tables. The function takes in a number of different parameters to control what is contained in the returned XML; this is explained further in the documentation associated with the stored procedure. To view this information, right click on the function and select: Script function as -> Create to -> New Query Editor Window
 
 - __[WaterAid].[p_WA_Populate]__ -  This stored procedure is the main driver of the WaterAid data generation process within the database. It extracts WaterAid’s activities data from the tables in the WaterAId schema and transform it, using the data in the Codelist and PublicationControl tables, before saving WaterAid's data into the IATISchema tables.
@@ -42,22 +38,3 @@ The installation script provided has been tested with SQL Server 2012 Express Ed
 - Log on to the database server and create a folder called ‘IATIv201’ on the C: drive (e.g. C:\ IATIv201). 
 
 - Open SQL Server Management Studio and run the script ‘IATIv201 – Create Database Script.sql’ to create the database and an associated login.
-
-## <a name="scripts"></a>Additional Scripts
-
-- The script **IATIv201 - Create WAIATI tables** is used to create WaterAid WAIATI schema and tables described in the [Database Table Schemas](#dts) section earlier in this document. It is a useful guide for organisations creating tables according to their own data model.
-- The script **IATIv201 - WaterAid Data Population Function.sql** is used to create the WaterAid p_WA_populate function, which is described in the [Important Functions and Stored Procedures](#functions) section earlier in this document. It is a useful guide to show how to populate the IATISchema tables from the source tables holding the activity data (WAIATI tables as described earlier)
-- The script **IATIv201 – DFID Data Population Function.sql** is used to create the DFID p_populate function, which is described earlier in this document. As this stored procedure is tightly coupled to DFID’s DataMart, it has been removed from the ‘IATIv201 – Create Database Script.sql’ script. However, as its functionality has been broken down into discrete SQL blocks, which have all been commented, it is a useful guide to show how DFID approaches the extraction and transformation of data from our DataMart. 
-
-- **IATIv201 – Views on the DFID Database.sql** – these views are tightly bound to DFID’s Datamart and so cannot be created, but they may prove informative as they show what data is being extracted.
-
-## <a name="glossary"></a>Glossary
-
-There are some table/column names in the Database’s “PublicationControl” schema which relate to DFID specific terminology; these will be outlined below to avoid confusion:
-
-- __Quest__ - This is the name of DFID’s document repository. A document’s Quest Number is its unique reference within this system.
-- __Project__ - This is the name that is used within DFID to describe hierarchy one iati-activities.
-- __Component__ - This is the name that is used within DFID to describe hierarchy two iati-activities. 
-- __ARIES__ - This is the name of DFID’s Enterprise Resource Planner system, 
-a project’s ARIES ID is effectively a hierarchy one iati-activity ID.
-
