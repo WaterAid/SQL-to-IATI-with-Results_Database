@@ -2,15 +2,6 @@
 
 ## Contents
 
-What we want to achieve is to show people a way to instal and customise the tables themselves. 
-
-WaterAid thas adapted the IATI tool to make it work for the specific requirements and other organisations can instal the tool and adapt it as well. We want to show the example of how WaterAid has done this; show spreadsheet, example of xml and WAIATI tables export 
-To get the maximun value of the tool, it would be to integrate the WAIATI data model with the data mart and have automatic generation of the 
-
-
-
-Add additional supporting documents such as the iati spreadsheet that is used to import data and an export of the WAIATI tables so people can understand the data model
-
 1. [Introduction](#intro)
 2. [Database Table Schemas](#dts)
 3. [Important Functions and Stored Procedures](#functions)
